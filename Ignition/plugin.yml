@@ -1,0 +1,12 @@
+name: Ignition
+author: Ninja3047
+main: com.github.Ninja3047.Ignition.Ignition
+version: 0.1
+
+commands:
+  ignite:
+    description: Ignites a player
+    aliases: [ig]
+    usage: /<command> [player]
+    permission: Ignition.ignite
+    permission-message: You don't have <permission>
