@@ -44,6 +44,7 @@ public class Ignition extends JavaPlugin
 			Location location = target.getLocation();
 			world.strikeLightning(location);
 			sender.sendMessage("and you strike "+ target.getDisplayName() + " down from the heavens. ");
+			return true;
 		}
 		
 		return false;
