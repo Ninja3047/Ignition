@@ -1,5 +1,7 @@
 package com.github.Ninja3047.Ignition;
 
+import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -26,12 +28,24 @@ public class Ignition extends JavaPlugin
 	{
 		if (cmd.getName().equalsIgnoreCase("ignite")) //if player typed /ignite
 		{
+			sender.sendMessage("You call on the fires of Hell...");
 			Player s = (Player) sender;
 			Player target = s.getServer().getPlayer(args[0]); // Gets the player who was typed in the command. 
 			target.setFireTicks(10000); //set the target on fire for 10000 milliseconds
-			sender.sendMessage("You set " + target.getDisplayName()	+ " on fire!"); //displays a message
+			sender.sendMessage("and you set " + target.getDisplayName()	+ " on fire!"); //displays a message
 			return true;
 		}
+		else if (cmd.getName().equalsIgnoreCase("strike"))
+		{
+			sender.sendMessage("You call on the powers of Zeus...");
+			Player s = (Player) sender;
+			Player target = s.getServer().getPlayer(args[0]);
+			World world = target.getWorld();
+			Location location = target.getLocation();
+			world.strikeLightning(location);
+			sender.sendMessage("and you strike "+ target.getDisplayName() + " down from the heavens. ");
+		}
+		
 		return false;
 	}
 }
